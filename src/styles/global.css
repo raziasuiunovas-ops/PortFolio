@@ -18,13 +18,20 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Russian language - better font for Cyrillic */
 body[data-lang="ru"] {
   --font-body: 'Comfortaa', 'Rubik', sans-serif;
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+html:has(body[data-lang="ru"]) {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
 }
 
 /* English language - keep Righteous */
