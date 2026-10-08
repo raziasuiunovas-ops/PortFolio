@@ -55,7 +55,40 @@
 
 @media (max-width: 768px) {
   .achievements-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: var(--spacing-sm);
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-card {
+    padding: var(--spacing-sm);
+  }
+
+  .achievement-number {
+    font-size: 2rem;
+  }
+
+  /* Russian language - adjust achievement text */
+  body[data-lang="ru"] .achievement-title {
+    font-size: 1.125rem;
+    line-height: 1.3;
+  }
+
+  body[data-lang="ru"] .achievement-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 }

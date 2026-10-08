@@ -66,25 +66,46 @@
 @media (max-width: 968px) {
   .who-i-am-content {
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
   }
 
   .who-i-am-stats {
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 
   .stat-item {
     flex: 1;
+    min-width: 120px;
   }
 }
 
 @media (max-width: 576px) {
   .who-i-am-stats {
     flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .stat-item {
+    width: 100%;
   }
 
   .text-content {
     font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* Russian language - adjust text size */
+  body[data-lang="ru"] .text-content {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  body[data-lang="ru"] .section-title {
+    font-size: 1.75rem;
   }
 }
