@@ -16,12 +16,14 @@ export const LanguageProvider = ({ children }) => {
   useEffect(() => {
     const savedLang = localStorage.getItem('language') || 'ru'
     setLanguage(savedLang)
+    document.body.setAttribute('data-lang', savedLang)
   }, [])
 
   const toggleLanguage = () => {
     const newLang = language === 'ru' ? 'en' : 'ru'
     setLanguage(newLang)
     localStorage.setItem('language', newLang)
+    document.body.setAttribute('data-lang', newLang)
   }
 
   return (

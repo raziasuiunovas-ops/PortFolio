@@ -1,72 +1,121 @@
 import React from 'react'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 import './Projects.css'
 
 const Projects = () => {
   const [titleRef, titleVisible] = useScrollReveal({ once: true })
   const [gridRef, gridVisible] = useScrollReveal({ once: true })
+  const { language } = useLanguage()
+  const t = translations[language]
 
   const projects = [
     {
-      title: 'Сайт для Окурмен',
+      title: language === 'ru' ? 'Сайт для Окурмен' : 'Okurmen Website',
       tech: 'React + Next.js + Tailwind CSS',
-      description: 'Многоязычный сайт IT-академии Окурмен',
-      features: [
-        'Задача стажировки в Okurmen Studio',
-        'Многоязычность (KY/RU/EN)',
-        'Адаптивный дизайн',
-        'Современный UI/UX'
-      ],
+      description: language === 'ru' 
+        ? 'Многоязычный сайт IT-академии Окурмен'
+        : 'Multilingual website for Okurmen IT Academy',
+      features: language === 'ru'
+        ? [
+            'Задача стажировки в Okurmen Studio',
+            'Многоязычность (KY/RU/EN)',
+            'Адаптивный дизайн',
+            'Современный UI/UX'
+          ]
+        : [
+            'Internship project at Okurmen Studio',
+            'Multilingual (KY/RU/EN)',
+            'Adaptive design',
+            'Modern UI/UX'
+          ],
       link: 'https://okurmen-seven.vercel.app/ky',
       hasLiveLink: true
     },
     {
       title: 'Todo List',
       tech: 'React + Vite + JavaScript',
-      description: 'Веб-приложение для управления задачами с интерактивной фильтрацией',
-      features: [
-        'Добавление задач',
-        'Удаление задач',
-        'Интерактивная фильтрация',
-        'Самостоятельно написанная логика'
-      ],
+      description: language === 'ru'
+        ? 'Веб-приложение для управления задачами с интерактивной фильтрацией'
+        : 'Task management web app with interactive filtering',
+      features: language === 'ru'
+        ? [
+            'Добавление задач',
+            'Удаление задач',
+            'Интерактивная фильтрация',
+            'Самостоятельно написанная логика'
+          ]
+        : [
+            'Add tasks',
+            'Delete tasks',
+            'Interactive filtering',
+            'Self-written logic'
+          ],
       hasLiveLink: false
     },
     {
-      title: 'Каталог товаров с API',
+      title: language === 'ru' ? 'Каталог товаров с API' : 'Product Catalog with API',
       tech: 'JavaScript + Fetch API',
-      description: 'Динамический каталог товаров с асинхронными запросами',
-      features: [
-        'Динамические карточки категорий',
-        'Fetch API',
-        'Асинхронные запросы',
-        'Адаптивная стилизация'
-      ],
+      description: language === 'ru'
+        ? 'Динамический каталог товаров с асинхронными запросами'
+        : 'Dynamic product catalog with async requests',
+      features: language === 'ru'
+        ? [
+            'Динамические карточки категорий',
+            'Fetch API',
+            'Асинхронные запросы',
+            'Адаптивная стилизация'
+          ]
+        : [
+            'Dynamic category cards',
+            'Fetch API',
+            'Async requests',
+            'Adaptive styling'
+          ],
       hasLiveLink: false
     },
     {
-      title: 'Адаптивная верстка по Figma',
+      title: language === 'ru' ? 'Адаптивная верстка по Figma' : 'Adaptive Figma Layouts',
       tech: 'HTML5 + CSS3 + Flexbox + Grid',
-      description: 'Практические проекты по сложным макетам Figma',
-      features: [
-        'Flexbox и Grid',
-        'Адаптивная верстка',
-        'Responsive design',
-        'Desktop / Tablet / Mobile'
-      ],
+      description: language === 'ru'
+        ? 'Практические проекты по сложным макетам Figma'
+        : 'Practical projects based on complex Figma designs',
+      features: language === 'ru'
+        ? [
+            'Flexbox и Grid',
+            'Адаптивная верстка',
+            'Responsive design',
+            'Desktop / Tablet / Mobile'
+          ]
+        : [
+            'Flexbox & Grid',
+            'Adaptive layout',
+            'Responsive design',
+            'Desktop / Tablet / Mobile'
+          ],
       hasLiveLink: false
     },
     {
-      title: 'Сайт-витрина кондитерской',
+      title: language === 'ru' ? 'Сайт-витрина кондитерской' : 'Pastry Shop Website',
       tech: 'Wix',
-      description: 'Концепция и структура сайта для заказа десертов',
-      features: [
-        'Структура сайта',
-        'Дизайн витрины',
-        'Онлайн-заказ',
-        'Визуальная концепция'
-      ],
+      description: language === 'ru'
+        ? 'Концепция и структура сайта для заказа десертов'
+        : 'Website concept and structure for dessert ordering',
+      features: language === 'ru'
+        ? [
+            'Структура сайта',
+            'Дизайн витрины',
+            'Онлайн-заказ',
+            'Визуальная концепция'
+          ]
+        : [
+            'Site structure',
+            'Storefront design',
+            'Online ordering',
+            'Visual concept'
+          ],
       hasLiveLink: false
     }
   ]
@@ -79,10 +128,10 @@ const Projects = () => {
           className={`scroll-reveal ${titleVisible ? 'visible' : ''}`}
         >
           <h2 className="section-title text-center">
-            My <span className="gradient-text">Projects</span>
+            {t.projects.title} <span className="gradient-text">{t.projects.titleHighlight}</span>
           </h2>
           <p className="section-subtitle text-center">
-            Реальные проекты, созданные в процессе обучения
+            {t.projects.subtitle}
           </p>
         </div>
 
@@ -117,7 +166,7 @@ const Projects = () => {
                       rel="noopener noreferrer"
                       className="project-link project-link-primary"
                     >
-                      <FiExternalLink /> Открыть сайт
+                      <FiExternalLink /> {language === 'ru' ? 'Открыть сайт' : 'Open site'}
                     </a>
                     <a 
                       href="https://github.com/raziasuiunovas-ops" 
@@ -135,7 +184,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="project-link"
                   >
-                    <FiGithub /> View on GitHub
+                    <FiGithub /> {t.projects.viewGithub}
                   </a>
                 )}
               </div>

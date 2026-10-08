@@ -22,6 +22,16 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Russian language - better font for Cyrillic */
+body[data-lang="ru"] {
+  --font-body: 'Comfortaa', 'Rubik', sans-serif;
+}
+
+/* English language - keep Righteous */
+body[data-lang="en"] {
+  --font-body: 'Righteous', cursive;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;

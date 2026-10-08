@@ -2,11 +2,15 @@ import React from 'react'
 import { FiSend, FiMail, FiGithub, FiPhone } from 'react-icons/fi'
 import { SiTelegram } from 'react-icons/si'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 import './WorkWithMe.css'
 
 const WorkWithMe = () => {
   const [titleRef, titleVisible] = useScrollReveal({ once: true })
   const [contentRef, contentVisible] = useScrollReveal({ once: true })
+  const { language } = useLanguage()
+  const t = translations[language]
 
   const contacts = [
     {
@@ -32,19 +36,26 @@ const WorkWithMe = () => {
     },
     {
       icon: <FiPhone />,
-      label: 'Phone',
+      label: language === 'ru' ? 'Телефон' : 'Phone',
       value: '+996 554 19 04 10',
       link: 'tel:+996554190410',
       primary: false
     }
   ]
 
-  const services = [
-    'Frontend разработка',
-    'Адаптивные лендинги',
-    'Сайты-витрины',
-    'Web-приложения на React'
-  ]
+  const services = language === 'ru'
+    ? [
+        'Frontend разработка',
+        'Адаптивные лендинги',
+        'Сайты-витрины',
+        'Web-приложения на React'
+      ]
+    : [
+        'Frontend development',
+        'Adaptive landing pages',
+        'Showcase websites',
+        'React web applications'
+      ]
 
   return (
     <section className="work-with-me section" id="contact">
@@ -54,10 +65,10 @@ const WorkWithMe = () => {
           className={`scroll-reveal ${titleVisible ? 'visible' : ''}`}
         >
           <h2 className="section-title text-center">
-            Let's Work <span className="gradient-text">Together</span>
+            {t.contact.title} <span className="gradient-text">{t.contact.titleHighlight}</span>
           </h2>
           <p className="section-subtitle text-center">
-            Ищу возможности для работы, проектов и командного сотрудничества
+            {t.contact.subtitle}
           </p>
         </div>
 
@@ -66,7 +77,7 @@ const WorkWithMe = () => {
           className={`work-content scroll-reveal-scale ${contentVisible ? 'visible' : ''}`}
         >
           <div className="work-info">
-            <h3>Что я предлагаю:</h3>
+            <h3>{t.contact.offer}</h3>
             <ul className="services-list">
               {services.map((service, index) => (
                 <li key={index}>{service}</li>
@@ -74,20 +85,20 @@ const WorkWithMe = () => {
             </ul>
 
             <div className="cta-box">
-              <p>Готова обсудить ваш проект или присоединиться к команде</p>
+              <p>{t.contact.ready}</p>
               <a 
                 href="https://t.me/RAXNVU" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-large"
               >
-                <FiSend /> Написать мне
+                <FiSend /> {t.contact.writeMe}
               </a>
             </div>
           </div>
 
           <div className="work-contacts">
-            <h3>Контакты:</h3>
+            <h3>{t.contact.contacts}</h3>
             <div className="contacts-list">
               {contacts.map((contact, index) => (
                 <a

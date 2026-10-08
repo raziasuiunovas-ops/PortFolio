@@ -103,11 +103,11 @@ body.dark-mode .skill-tag:hover {
   color: var(--color-white);
 }
 
-/* Dark mode - resume card background */
+/* Dark mode - resume card background - always white */
 body.dark-mode .resume-card {
-  background: var(--color-neutral-light);
+  background: #FFFFFF;
 }
 
 body.dark-mode .resume-embed {
-  background: var(--color-neutral-light);
+  background: #FFFFFF;
 }

@@ -1,25 +1,36 @@
 import React from 'react'
 import { FiYoutube } from 'react-icons/fi'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 import './YouTubeStory.css'
 
 const YouTubeStory = () => {
   const [headerRef, headerVisible] = useScrollReveal({ once: true })
   const [contentRef, contentVisible] = useScrollReveal({ once: true })
+  const { language } = useLanguage()
+  const t = translations[language]
 
   const achievements = [
-    { number: '300K+', label: 'Подписчиков' },
-    { number: '8', label: 'Месяцев роста' },
-    { number: '14', label: 'Лет было' }
+    { number: '300K+', label: language === 'ru' ? 'Подписчиков' : 'Subscribers' },
+    { number: '8', label: language === 'ru' ? 'Месяцев роста' : 'Months of growth' },
+    { number: '14', label: language === 'ru' ? 'Лет было' : 'Years old' }
   ]
 
-  const skills = [
+  const skills = language === 'ru' ? [
     'Самостоятельность',
     'Работа с контентом и аудиторией',
     'Видеомонтаж',
     'Понимание алгоритмов платформ',
     'Дисциплина',
     'Долгосрочная работа над проектом'
+  ] : [
+    'Independence',
+    'Content and audience management',
+    'Video editing',
+    'Understanding platform algorithms',
+    'Discipline',
+    'Long-term project work'
   ]
 
   return (
@@ -31,7 +42,7 @@ const YouTubeStory = () => {
         >
           <FiYoutube className="youtube-icon-large" />
           <h2 className="section-title">
-            Beyond Code: <span className="gradient-text">My Content Journey</span>
+            {t.youtube.title} <span className="gradient-text">{t.youtube.titleHighlight}</span>
           </h2>
         </div>
 
@@ -41,19 +52,29 @@ const YouTubeStory = () => {
         >
           <div className="youtube-story-text">
             <p>
-              В 14 лет я самостоятельно начала развивать YouTube-канал.
+              {language === 'ru' 
+                ? 'В 14 лет я самостоятельно начала развивать YouTube-канал.'
+                : 'At 14, I independently started growing a YouTube channel.'}
             </p>
             <p>
-              За <strong>8 месяцев</strong> вырастила его с нуля до почти <strong>300 000 подписчиков</strong>.
+              {language === 'ru' 
+                ? 'За 8 месяцев вырастила его с нуля до почти 300 000 подписчиков.'
+                : 'In 8 months, I grew it from scratch to nearly 300,000 subscribers.'}
             </p>
             <p>
-              Канал был монетизирован, но позже заблокирован — но этот опыт научил меня многому.
+              {language === 'ru'
+                ? 'Канал был монетизирован, но позже заблокирован — но этот опыт научил меня многому.'
+                : 'The channel was monetized but later blocked — but this experience taught me a lot.'}
             </p>
             <p>
-              Сейчас развиваю новый канал (<strong>4.6K+ подписчиков</strong>), параллельно сосредоточившись на IT.
+              {language === 'ru'
+                ? 'Сейчас развиваю новый канал (4.6K+ подписчиков), параллельно сосредоточившись на IT.'
+                : 'Now I am growing a new channel (4.6K+ subscribers) while focusing on IT.'}
             </p>
             <p className="youtube-conclusion">
-              Этот путь показал мне, что я умею создавать проекты и доводить их до измеримых результатов.
+              {language === 'ru'
+                ? 'Этот путь показал мне, что я умею создавать проекты и доводить их до измеримых результатов.'
+                : 'This journey showed me that I can create projects and achieve measurable results.'}
             </p>
           </div>
 
@@ -68,7 +89,7 @@ const YouTubeStory = () => {
             </div>
 
             <div className="youtube-skills-learned">
-              <h4>Что я получила:</h4>
+              <h4>{t.youtube.learned}</h4>
               <ul>
                 {skills.map((skill, index) => (
                   <li key={index}>{skill}</li>

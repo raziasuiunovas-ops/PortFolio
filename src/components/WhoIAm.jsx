@@ -1,10 +1,14 @@
 import React from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 import './WhoIAm.css'
 
 const WhoIAm = () => {
   const [textRef, textVisible] = useScrollReveal({ once: true })
   const [statsRef, statsVisible] = useScrollReveal({ once: true })
+  const { language } = useLanguage()
+  const t = translations[language]
 
   return (
     <section className="who-i-am section" id="about">
@@ -15,22 +19,14 @@ const WhoIAm = () => {
             className={`who-i-am-text scroll-reveal-left ${textVisible ? 'visible' : ''}`}
           >
             <h2 className="section-title">
-              Who <span className="gradient-text">I Am</span>
+              {t.whoIAm.title} <span className="gradient-text">{t.whoIAm.titleHighlight}</span>
             </h2>
             <div className="text-content">
+              <p>{t.whoIAm.text1}</p>
+              <p>{t.whoIAm.text2}</p>
+              <p>{t.whoIAm.text3}</p>
               <p>
-                Я — самостоятельная и целеустремлённая начинающая фронтенд-разработчица из Бишкека.
-              </p>
-              <p>
-                Совмещаю учёбу на отлично в школе, интенсивное обучение в IT-академии «Окурмен», 
-                изучение иностранных языков и создание контента.
-              </p>
-              <p>
-                Быстро обучаюсь, умею работать в многозадачности и доводить проекты до результата.
-              </p>
-              <p>
-                Сейчас прохожу стажировку в <strong>Okrumen Studio</strong> и ищу возможности расти 
-                в направлении <strong>AI Web Development</strong>.
+                {t.whoIAm.text4_1} <strong>{t.whoIAm.studio}</strong> {t.whoIAm.text4_2} <strong>{t.whoIAm.direction}</strong>.
               </p>
             </div>
           </div>
@@ -41,15 +37,15 @@ const WhoIAm = () => {
           >
             <div className="stat-item">
               <div className="stat-value gradient-text">16</div>
-              <div className="stat-label">years old</div>
+              <div className="stat-label">{t.whoIAm.yearsOld}</div>
             </div>
             <div className="stat-item">
               <div className="stat-value gradient-text">4</div>
-              <div className="stat-label">languages</div>
+              <div className="stat-label">{t.whoIAm.languages}</div>
             </div>
             <div className="stat-item">
               <div className="stat-value gradient-text">Bishkek</div>
-              <div className="stat-label">based in</div>
+              <div className="stat-label">{t.whoIAm.basedIn}</div>
             </div>
           </div>
         </div>

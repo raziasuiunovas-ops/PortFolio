@@ -91,7 +91,7 @@
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(4rem, 10vw, 8rem);
   line-height: 1;
   margin: var(--spacing-sm) 0;
   opacity: 0;
@@ -145,7 +145,7 @@
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   transition: all var(--transition-normal);
-  background: var(--color-white);
+  background: #FFFFFF;
 }
 
 .resume-card:hover {
@@ -179,7 +179,7 @@
   height: 100%;
   object-fit: cover;
   border: none;
-  background: var(--color-white);
+  background: #FFFFFF;
 }
 
 /* Hide scrollbars in resume and entire page */

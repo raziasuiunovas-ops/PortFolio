@@ -1,10 +1,14 @@
 import React from 'react'
 import { FiGithub, FiMail } from 'react-icons/fi'
 import { SiTelegram } from 'react-icons/si'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../translations'
 import './Footer.css'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+  const { language } = useLanguage()
+  const t = translations[language]
 
   return (
     <footer className="footer">
@@ -12,7 +16,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-brand">
             <h3 className="footer-logo gradient-text">razziyu</h3>
-            <p className="footer-tagline">Building digital experiences with passion</p>
+            <p className="footer-tagline">{t.footer.tagline}</p>
           </div>
 
           <div className="footer-social">
@@ -46,7 +50,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>© {currentYear} Razia Suiunova</p>
-          <p>Built with React • Designed with love</p>
+          <p>{t.footer.builtWith}</p>
         </div>
       </div>
     </footer>
