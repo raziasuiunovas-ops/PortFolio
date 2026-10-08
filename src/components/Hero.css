@@ -1,0 +1,309 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-decoration {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: float 20s infinite ease-in-out;
+}
+
+.decoration-1 {
+  width: 600px;
+  height: 600px;
+  background: var(--gradient-burgundy);
+  top: -200px;
+  right: -200px;
+  animation-delay: 0s;
+}
+
+.decoration-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--color-burgundy-light);
+  bottom: -100px;
+  left: -100px;
+  animation-delay: 3s;
+}
+
+.decoration-3 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-burgundy-medium);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.hero-greeting {
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+  margin: var(--spacing-sm) 0;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.2s forwards;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-burgundy);
+  font-weight: 600;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.4s forwards;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  max-width: 500px;
+  margin-top: var(--spacing-sm);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.6s forwards;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.8s forwards;
+}
+
+.hero-resume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 1s forwards;
+}
+
+.resume-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1.4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+  background: var(--color-white);
+}
+
+.resume-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.resume-glow {
+  position: absolute;
+  inset: -4px;
+  background: var(--gradient-glow);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+  opacity: 0.6;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+.resume-embed {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  background: var(--color-white);
+}
+
+/* Hide scrollbars in resume and entire page */
+.resume-card::-webkit-scrollbar,
+.resume-embed::-webkit-scrollbar {
+  display: none;
+}
+
+.resume-card,
+.resume-embed {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.resume-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: var(--spacing-md);
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.resume-card:hover .resume-overlay {
+  opacity: 1;
+}
+
+.resume-download {
+  white-space: nowrap;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: var(--spacing-md);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.scroll-line {
+  width: 2px;
+  height: 60px;
+  background: var(--gradient-burgundy);
+  animation: scrollDown 2s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 968px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    text-align: center;
+  }
+
+  .hero-text {
+    align-items: center;
+  }
+
+  .hero-subtitle {
+    max-width: 600px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .resume-card {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    min-height: auto;
+    padding: var(--spacing-xl) 0;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .resume-card {
+    max-width: 300px;
+  }
+
+  .decoration-1,
+  .decoration-2,
+  .decoration-3 {
+    width: 250px;
+    height: 250px;
+  }
+}

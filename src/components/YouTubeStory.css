@@ -1,0 +1,151 @@
+.youtube-story {
+  background: var(--color-white);
+}
+
+.youtube-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.youtube-icon-large {
+  font-size: 4rem;
+  color: var(--color-burgundy);
+}
+
+.youtube-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.youtube-story-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
+
+.youtube-story-text strong {
+  color: var(--color-burgundy);
+  font-weight: 600;
+}
+
+.youtube-conclusion {
+  margin-top: var(--spacing-sm);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding-left: var(--spacing-md);
+  border-left: 4px solid var(--color-burgundy);
+}
+
+.youtube-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.youtube-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.youtube-stat-card {
+  background: var(--gradient-primary);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.youtube-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.youtube-stat-number {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: var(--spacing-xs);
+}
+
+.youtube-stat-label {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+}
+
+.youtube-skills-learned {
+  background: var(--gradient-primary);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.youtube-skills-learned h4 {
+  font-size: 1.125rem;
+  color: var(--color-burgundy);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.youtube-skills-learned ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.youtube-skills-learned li {
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+.youtube-skills-learned li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-burgundy);
+  font-weight: bold;
+}
+
+@media (max-width: 968px) {
+  .youtube-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .youtube-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .youtube-icon-large {
+    font-size: 3rem;
+  }
+
+  .youtube-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .youtube-story-text {
+    font-size: 1rem;
+  }
+
+  .youtube-conclusion {
+    font-size: 1.125rem;
+  }
+}

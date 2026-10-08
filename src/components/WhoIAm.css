@@ -1,0 +1,90 @@
+.who-i-am {
+  background: var(--color-neutral-light);
+}
+
+.who-i-am-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: var(--spacing-md);
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
+
+.text-content strong {
+  color: var(--color-burgundy);
+  font-weight: 600;
+}
+
+.who-i-am-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.stat-item {
+  background: var(--color-white);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.stat-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-light);
+}
+
+@media (max-width: 968px) {
+  .who-i-am-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .who-i-am-stats {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .stat-item {
+    flex: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .who-i-am-stats {
+    flex-direction: column;
+  }
+
+  .text-content {
+    font-size: 1rem;
+  }
+}

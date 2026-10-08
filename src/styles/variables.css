@@ -1,0 +1,113 @@
+:root {
+  /* Colors */
+  --color-burgundy: #8B1538;
+  --color-burgundy-light: #A0153E;
+  --color-burgundy-medium: #B91646;
+  --color-burgundy-dark: #5C0E27;
+  --color-burgundy-darker: #4A0B1F;
+  --color-white: #FFFFFF;
+  --color-off-white: #FEFEFE;
+  --color-neutral-light: #F5F5F3;
+  --color-neutral: #E8E6E3;
+  --color-text: #1A1A1A;
+  --color-text-light: #4A4A4A;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--color-white) 0%, rgba(160, 21, 62, 0.1) 50%, rgba(139, 21, 56, 0.2) 100%);
+  --gradient-burgundy: linear-gradient(135deg, var(--color-burgundy-light) 0%, var(--color-burgundy-dark) 100%);
+  --gradient-text: linear-gradient(135deg, var(--color-burgundy-light), var(--color-burgundy-medium));
+  --gradient-glow: linear-gradient(135deg, var(--color-burgundy), var(--color-burgundy-medium), var(--color-burgundy-light));
+
+  /* Fonts */
+  --font-display: 'Limelight', cursive;
+  --font-heading: 'Manrope', sans-serif;
+  --font-body: 'Righteous', cursive;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  --spacing-2xl: 8rem;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(139, 21, 56, 0.08);
+  --shadow-md: 0 4px 16px rgba(139, 21, 56, 0.12);
+  --shadow-lg: 0 8px 32px rgba(139, 21, 56, 0.16);
+  --shadow-hover: 0 12px 40px rgba(139, 21, 56, 0.24);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Z-index */
+  --z-header: 100;
+  --z-modal: 200;
+  --z-overlay: 50;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  --color-white: #1A1A1A;
+  --color-off-white: #1F1F1F;
+  --color-neutral-light: #252525;
+  --color-neutral: #2A2A2A;
+  --color-text: #FFFFFF;
+  --color-text-light: #E0E0E0;
+  
+  --gradient-primary: linear-gradient(135deg, #252525 0%, rgba(160, 21, 62, 0.2) 50%, rgba(139, 21, 56, 0.3) 100%);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-hover: 0 12px 40px rgba(139, 21, 56, 0.5);
+}
+
+/* Dark mode specific styles for cards */
+body.dark-mode .card {
+  background: linear-gradient(135deg, #252525 0%, rgba(160, 21, 62, 0.15) 50%, rgba(139, 21, 56, 0.2) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .achievement-card,
+body.dark-mode .project-card,
+body.dark-mode .soft-skill-card,
+body.dark-mode .tech-skill-card,
+body.dark-mode .beyond-card,
+body.dark-mode .youtube-stat-card,
+body.dark-mode .youtube-skills-learned,
+body.dark-mode .contact-card,
+body.dark-mode .stat-item,
+body.dark-mode .journey-content,
+body.dark-mode .language-item,
+body.dark-mode .education-item {
+  background: linear-gradient(135deg, #252525 0%, rgba(160, 21, 62, 0.15) 50%, rgba(139, 21, 56, 0.2) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .skill-tag {
+  background: transparent;
+  border-color: var(--color-burgundy);
+  color: var(--color-burgundy);
+}
+
+body.dark-mode .skill-tag:hover {
+  background: var(--color-burgundy);
+  color: var(--color-white);
+}
+
+/* Dark mode - resume card background */
+body.dark-mode .resume-card {
+  background: var(--color-neutral-light);
+}
+
+body.dark-mode .resume-embed {
+  background: var(--color-neutral-light);
+}
